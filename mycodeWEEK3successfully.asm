@@ -1,0 +1,62 @@
+ORG 100h
+
+MOV AL, var1
+SHL AL, 1
+INC AL  
+
+PUSH AX     
+
+MOV AL, var1
+INC AL
+SHR AL, 1   
+
+POP BX      
+SUB BX, AX  
+DEC BX  
+      
+PUSH BX 
+
+MOV AL, 2
+SHL AL, 1
+INC AL  
+
+MOV BL, var1 
+
+PUSH AX
+
+MOV AL, var1 
+
+
+MUL BX
+
+POP BX
+
+SUB AX, BX  
+
+PUSH AX
+
+POP BX
+
+POP AX 
+
+DIV BX
+
+PUSH AX
+       
+POP CX
+
+MOV AX, 0B800H 
+MOV DS, AX 
+
+MOV CH, 00010111B 
+MOV BX, 0000
+MOV [BX], CX   
+
+mov ah, 4Ch
+int  21h
+
+RET 
+
+var1 DB 3
+
+RET 

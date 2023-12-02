@@ -1,0 +1,31 @@
+org 100h
+
+MOV AL, CAT
+SHL AL, 1
+INC AL
+PUSH AX 
+
+MOV AL, CAT
+SHR AL, 1
+DEC AL
+
+POP BX
+ADD AL, BL        
+PUSH AX   
+
+MOV AL, CAT 
+SHL AL, 1
+MOV BL, CAT 
+SHR BL, 1
+SUB AL, BL   
+MOV BL, AL
+
+POP AX 
+DIV BL
+
+
+
+
+ret 
+
+CAT DB 7
